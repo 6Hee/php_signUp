@@ -1,0 +1,105 @@
+/**  member.css  **/
+
+@charset "utf-8";
+
+
+/*회원가입 양식*/
+
+#main_content{
+    width: 1000px;
+    height: auto;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+#main_content #join_box{
+    width: 100%;
+}
+#main_content #join_box h2{
+    padding: 20px 0 10px;
+    border-bottom: 1px solid #ccc;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+#main_content #join_box .form{
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+}
+#main_content #join_box .form .label_box{
+    width: 160px;
+    padding: 0 5px;
+}
+#main_content #join_box .form .label_box label{
+    color: #777;
+}
+
+#main_content #join_box .form .input_box{
+    width: calc(100% - 260px);
+    padding: 0 5px;
+}
+#main_content #join_box .form .input_box input{
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    padding: 0 10px;
+    color: #777;
+    background-color: #ffe;
+}
+#main_content #join_box .form .input_box.email_input{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#main_content #join_box .form .input_box input[name="email1"]{
+    width: 180px;
+}
+#main_content #join_box .form .input_box input[name="email2"]{
+    width: calc(100% - 200px);
+}
+
+#main_content #join_box .buttons{
+    margin-top: 10px; 
+    border-top: 1px solid #ccc; 
+    padding: 10px 0 40px; 
+    text-align: right;
+}
+
+#main_content #join_box .buttons button{
+    padding: 10px 20px; 
+    border: none; 
+    border-radius: 4px; 
+    margin: 0 5px; 
+    cursor: pointer; 
+    font-size: 17px; 
+    color:#fff; 
+    background-color: #21bda1;
+}
+
+#main_content #join_box .buttons button:hover{
+    background-color: #019d81;
+}
+#main_content #join_box .buttons button:last-child{
+    background-color: #333;
+}
+#main_content #join_box .buttons button:last-child:hover{
+    background-color: #111;
+}
+
+
+#main_content #join_box .form .add_btn{}
+#main_content #join_box .form .add_btn button{
+    width: 100px;
+    height: 40px;
+    background-color: #21bda1;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 17px;
+}
+#main_content #join_box .form .add_btn button:hover{
+    background-color: #019d81;
+}
+

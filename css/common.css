@@ -38,21 +38,25 @@ header #top .frame #top_menu{
 }
 header #top .frame #top_menu li{}
 header #top .frame #top_menu li a{
-    padding: 0 5px;
-    border-right: 1px solid #ddd;
+    padding: 0 10px;
     color: #fff;
     font-size: 14px;
-    line-height: 0.8;
     font-weight: 300;
+    display: block;
 }
 
 header #top .frame #top_menu li:last-child a{
-    border-right: none;
+    border-right: 0;
 }
-
 header #top .frame #top_menu li:hover a{
     color:#21bda1;
 }
+header #top .frame #top_menu li span{
+    color: #fff;
+    display: block;
+    font-size: 14px;
+}
+
 
 header nav{
     border-bottom: 1px solid #21bda1; 

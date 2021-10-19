@@ -83,6 +83,17 @@ function reset_form(){
     document.member_form.id.focus();
 }
 
+function reset_form_modify(){
+    document.member_form.id.value = "";
+    document.member_form.pass.value = "";
+    document.member_form.pass_confirm.value = "";
+    document.member_form.email1.value = "";
+    document.member_form.email2.value = "";
+    document.member_form.name.value = "";
+    document.member_form.pass.focus();
+}
+
+
 
 function check_id(){
 
@@ -96,3 +107,9 @@ function check_id(){
     }
     window.open("./member_check_id.php?id="+document.member_form.id.value, "checkID", "width=400, height=300");
 }
+
+
+/*
+[window 팝업창]
+window.open("오픈할 문서 파일 또는 URL(절대 URL, 상대 URL)","오픈할 창의 타이틀", "오픈할 창의 환경 설정(가로,세로,위치,스크롤바의 존재유무,툴팁바의 존재유무, ...)") 
+*/

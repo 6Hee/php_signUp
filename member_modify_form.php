@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OClass - 회원가입</title>
+    <title>OClass - 회원정보수정</title>
     <link rel="stylesheet" href="./css/common.css">
     <link rel="stylesheet" href="./css/member.css">
 </head>
 <body>
+    
     <header>
-        <?php include "./header.php"?>
+        <?php include "./header.php" ?>
     </header>
+    <!--session storage에 아이디, 네임, 레벨, 포인트를 이미 알고 있다.-->
+
+    
     <section>
         <div class="subpage">
             <div class="frame">
@@ -21,22 +25,49 @@
                 </div>
             </div>
         </div>
+
+<?php
+    //$userid의 값이 존재
+    include "./db_con.php";
+
+    $sql = "select * from members where id='$userid'";
+    $result = mysqli_query($con, $sql);
+    //var_dump($result);
+    $row = mysqli_fetch_array($result);
+    //var_dump($row);
+    $pass = $row["pass"];
+    $name = $row["name"];
+
+    //var_dump($pass);
+    //var_dump($name);
+
+    //이메일 abc@gmail.com => abc, gmail.com
+    //explode("특정문자" , 문자열을 포함한 변수명 또는 대상) : 특정문자를 기준으로 분리시켜서 배열로 저장
+
+    $email = explode("@", $row["email"]);
+    //var_dump($email);
+
+    $email1 = $email[0];
+    $email2 = $email[1];
+
+    mysqli_close($con); //접속종료
+
+
+
+?>
         <div id="main_content">
             <div id="join_box">
-                <form name="member_form" action="./member_insert.php" method="post">
-                    <h2>회원가입</h2>
+                <form name="member_form" action="./member_modify.php?id=<?=$userid?>" method="post">
+                    <h2>회원정보수정</h2>
 
                     <div class="form">
                         <div class="label_box">
                             <label for="userid">아이디</label>
                         </div>
                         <div class="input_box">
-                            <input type="text" name="id" id="userid">
+                            <input type="text" name="id" id="userid" value="<?=$userid?>" readonly>
                         </div>
-                        <!--중복체크-->
-                        <div class="add_btn">
-                            <button type="button" onclick="check_id();">중복체크</button>
-                        </div>
+                    
                     </div>
 
                     <div class="form">
@@ -62,7 +93,7 @@
                             <label for="username">이름</label>
                         </div>
                         <div class="input_box">
-                            <input type="text" name="name" id="username">
+                            <input type="text" name="name" id="username" value="<?=$username?>">
                         </div>
                     </div>
 
@@ -71,15 +102,15 @@
                             <label for="useremail">이메일</label>
                         </div>
                         <div class="input_box email_input">
-                            <input type="text" name="email1">
+                            <input type="text" name="email1" value="<?=$email1?>">
                             <span>@</span>
-                            <input type="text" name="email2">
+                            <input type="text" name="email2" value="<?=$email2?>">
                         </div>
                     </div>
 
                     <div class="buttons">
-                        <button type="button" onclick="check_input();">회원가입</button>
-                        <button type="button" onclick="reset_form();">취소하기</button>
+                        <button type="button" onclick="check_input();">정보수정</button>
+                        <button type="button" onclick="reset_form_modify();">취소하기</button>
                     </div>
                     <!--
                         <button type="button">일반버튼</button>
@@ -95,17 +126,15 @@
             </div>
         </div>
     </section>
+
     <footer>
-        <?php include "./footer.php"?>
+        <?php include "./footer.php" ?>
     </footer>
-    <!--사용자가 입력한 입력값에 대한 유효성 검사를 진행할 스크립트 문서-->
+
+
+
+
+
     <script src="./js/member_form.js"></script>
-
-    <!--
-        [method]
-        post : 무언가를 작성한 상태에서 그 값들을 우편물처럼 보냄(작성하기)
-        get : 무언가를 가져온다. 미리 설정된 값들을 가져다가 쓰겟다는 의미(http 통신 중 url 정보창으로부터 정보값을 가져올 때 사용)
--->
-
 </body>
 </html>

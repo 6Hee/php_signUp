@@ -1,0 +1,56 @@
+<<OClass 사이트 구성하기 - UI 디자인_카테고리 정의서.txt>>
+oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
+내부 신규 폴더 css, data, js, img, db
+
+[members] 회원가입 -> 로그인 -> 회원수정
+
+1) 회원가입
+{css}
+ - css/common.css
+ - css/member.css
+
+{js}
+ - js/member_form.js 
+
+{view 구조}
+ - header.php
+ - footer.php   
+ - member_form.php => js/member_form.js =>member_insert.php(DB에 각 입력상자의 value값을 넣는 작업을 진행)
+ - member_check_id.php(아이디 중복 체크)
+
+
+
+
+2)로그인
+{css}
+- login.css
+{js}
+- login.js
+{view 구조}
+- login_form.php => js/login.js => login_ok.php
+    ※ 로그인 전 상태와 로그인 후 상태의 헤더 공간의 UI가 변경된다.
+
+
+
+3)로그아웃
+- logout.php
+
+
+
+
+
+
+4)회원정보 수정
+{css}
+- member.css(그존의 스타일 시트에 구성)
+
+
+{view}
+- member_modify_form.php => js/member_form.js =submit()=> member_modify.php
+
+
+
+[message] 메시지 보내기(내부 회원간 커뮤니케이션 : 메시지보내기, 답글달기)
+
+[board] 게시판 구성하기
+

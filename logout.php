@@ -1,6 +1,5 @@
 <?php
-    //로그아웃 시 : 세션 스토리지 내부에 key 항목을 제거하면 각각의 value 값도 동시에 삭제
-    
+    //로그 아웃시 : 세션 스토리지 내부에 key 항목을 제거하면 각각의 value 값도 동시에 삭제
     session_start();
     unset($_SESSION["userid"]);
     unset($_SESSION["username"]);
@@ -12,8 +11,6 @@
         <script>
             location.href='./';
         </script>
-    
     ");
-
 
 ?>

@@ -19,38 +19,63 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
  - member_check_id.php(아이디 중복 체크)
 
 
-
-
-2)로그인
+2) 로그인
 {css}
-- login.css
+ - login.css
+
 {js}
-- login.js
+ - login.js
+
 {view 구조}
-- login_form.php => js/login.js => login_ok.php
-    ※ 로그인 전 상태와 로그인 후 상태의 헤더 공간의 UI가 변경된다.
+ - login_form.php => js/login.js => login_ok.php
+
+ ※ 로그인 전 상태와 로그인 후 상태의 헤더 공간의 UI가 변경된다.
+
+3) 로그아웃
+ - logout.php
 
 
-
-3)로그아웃
-- logout.php
-
-
-
-
-
-
-4)회원정보 수정
+4) 회원정보 수정(아이디만 수정 불가)
 {css}
-- member.css(그존의 스타일 시트에 구성)
+ - css/member.css(기존의 스타일 시트에 구성)
+
+
+{js}
+ - js/member_form.js(기존 스크립트 파일에 구성)
 
 
 {view}
-- member_modify_form.php => js/member_form.js =submit()=> member_modify.php
+ - member_modify_form.php =>  js/member_form.js =submit()=> member_modify.php
+
 
 
 
 [message] 메시지 보내기(내부 회원간 커뮤니케이션 : 메시지보내기, 답글달기)
+ - 회사에서 내부 보고서, 부서간 협업 메일 보내기
+{DB - sql}
+ - db/message.sql
+ (send_id:보낸사람 / rv_id:받는사람 / subject:메시지 제목 / content:메시지 내용 / regist_day:메시지 전송 시각)
+ <https://dung-beetle.tistory.com/72 : 문자형 데이터의 크기 비교>
+
+
+{css}
+ - css/message.css
+
+{js}
+ - js/message.js
+
+{view}
+ - (메시지 작성 양식) message_form.php => js/message.js =submit()=> message_insert.php => message_box.php
+ - (메시지 리스트) message_box.php
 
 [board] 게시판 구성하기
 
+[product] 제품 리스트
+
+[FAQ - 과제] 자주하는 질문(관리자만 등록)
+
+[[관리자 페이지]] 전체 회원 통제, 게시판 통제, 제품 리스트 통제
+    [신규 회원가입]
+        <전체 통제 가능한 관리자>
+        - admin / 기술책임 
+        - DB에서 직접 찾아서 수정이라는 위치를 클릭 -> 레벨만 9 ~> 1로 변경

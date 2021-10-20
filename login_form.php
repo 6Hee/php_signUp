@@ -9,6 +9,20 @@
     <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
+
+<?php
+    //http://localhost/oclass/login_form.php?spot=message
+
+    if(isset($_GET["spot"])){
+        $spot = $_GET["spot"];
+
+    }else{
+        $spot = "";
+    }
+    var_dump($spot)
+?>
+
+
     <header>
         <?php include "./header.php"?>
     </header>    
@@ -24,19 +38,16 @@
 
         <div id="main_content">
             <div id="login_box">
-
-                <form name="login_form" action="./login_ok.php" method="post">
+                <form name="login_form" action="./login_ok.php?spot=<?=$spot?>" method="post">
                     <h2>로그인</h2>
                     <ul>
                         <li><input type="text" name="id" placeholder="아이디 입력" autocomplete="off"></li>
                         <li><input type="password" name="pass" placeholder="비밀번호 입력" autocomplete="off"></li>
                     </ul>
                     <div id="login_btn">
-                        <button type="button" onclick="check_input();">
-                            로그인
-                        </button>
+                        <button type="button" onclick="check_input();">로그인</button>
                     </div>
-
+            
                 </form>
 
             </div>
@@ -47,7 +58,7 @@
         <?php include "./footer.php"?>
     </footer>
 
-
     <script src="./js/login.js"></script>
+
 </body>
 </html>

@@ -13,4 +13,6 @@
     //var_dump($con);
     mysqli_query($con, "SET NAMES utf8");  //sql의 언어 설정(인코딩 utf8로 설정)
 
+
+
 ?>

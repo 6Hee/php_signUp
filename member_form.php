@@ -21,6 +21,7 @@
                 </div>
             </div>
         </div>
+
         <div id="main_content">
             <div id="join_box">
                 <form name="member_form" action="./member_insert.php" method="post">

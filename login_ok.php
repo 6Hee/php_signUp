@@ -1,4 +1,14 @@
 <?php
+
+    //http://localhost/oclass/login_form.php?spot=message
+    if(isset($_GET["spot"])){
+        $spot = $_GET["spot"];
+    }else{
+        $spot = "";
+    }
+    var_dump($spot);
+
+
     $id = $_POST["id"];
     $pass = $_POST["pass"];
 
@@ -62,15 +72,38 @@
             $_SESSION["userlevel"] = $row["level"];
             $_SESSION["userpoint"] = $row["point"];
 
+            //key1 : value1 ==> userid : USER의 실제 아이디 데이터
+            //key2 : value2 ==> username : USER의 실제 이름 데이터
+            //key3 : value3 ==> userlevel : USER의 실제 레벨 데이터
+            //key4 : value4 ==> userpoint : USER의 실제 포인트 데이터
+
+
+
             //var_dump($_SESSION["username"]);
 
+            if(!$spot){
+                echo ("
+                    <script>
+
+                        location.href='./';
+                    </script>
+                ");
+            }elseif($spot == "message"){
+                echo ("
+                    <script>
+
+                        location.href='./message_form.php';
+                    </script>
+                ");
+            }
+/*
             echo ("
                 <script>
                     location.href='./';
                 </script>
             
             ");
-
+*/
         }
 
     }

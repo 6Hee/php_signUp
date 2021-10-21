@@ -25,8 +25,15 @@
     </section>
 
     <div id="message_box">
+
 <?php
-    
+
+    if(isset($_GET["page"])){  //http://localhost/oclass/message_box.php?mode=send$page=2
+        $page = $_GET["page"];  //#1. 하단의 페이지 번호를 클릭했을 때
+    }else{  //http://localhost/oclass/message_box.php?mode=send
+        $page = 1;  //맨처음 보낸 메세지 또는 받은 메세지라는 버튼을 클릭시 첫번째 페이지를 가리킴
+    }
+
     //http://localhost/oclass/message_box.php?mode=send
     $mode = $_GET["mode"];
     if($mode == "send"){
@@ -102,11 +109,38 @@
 
     }
 
-    var_dump($total_page);
+    //var_dump($total_page);
+
+    //첫번째 페이지($page)에서 100개의 데이터가 존재한다면
+    //0번 데이터로부터 9번 데이터까지 가져오면 된다.
+    $start = ($page - 1) * $scale;  //$scale = 10이라는 가정하에 진행
+    //1번 페이지일 경우, (1 - 1) * 10 = 0 ~
+    //2번 페이지일 경우, (2 - 1) * 10 = 10 ~
+    //3번 페이지일 경우, (3 - 1) * 10 = 20 ~
+    //n번 페이지일 경우, (n - 1) * 10 = 
+    //$start 각 페이지별로 메세지리스트의 시작(데이터의 인덱스번호)을 의미
+
+    $number = $total_record - $start;
+    //만약 데이터 행의 개수가 100개라면
+    //1번 페이지에서 100 - 0 = 100 ~ 91
+    //2번 페이지에서 100 - 10 = 90 ~ 81
+    //3번 페이지에서 100 - 20 = 80 ~ 71
+
+    //만약 100개의 데이터가 존재하여 가져온 상태라면
+    //1번 페이지일 경우, for($i = 0; $i < 0 + 10 &&  $i < 100; $i++) : $i = 0 ~ 9
+    //2번 페이지일 경우, for($i = 10; $i < 10 + 10 &&  $i < 100; $i++) : $i = 10 ~ 19
+    //3번 페이지일 경우, for($i = 20; $i < 20 + 10 &&  $i < 100; $i++) : $i = 20 ~ 29
+    //...
+    //10번 페이지일 경우, for($i = 90; $i < 90 + 10 &&  $i < 100; $i++) : $i = 90 ~ 99
 
 
+    //만약 101개의 데이터가 존재하여 가져온 상태라면
+    //1번 페이지일 경우, for($i = 0; $i < 0 + 10 &&  $i < 101; $i++) : $i = 0 ~ 9
+    //...
+    //10번 페이지일 경우, for($i = 90; $i < 90 + 10 &&  $i < 101; $i++) : $i = 90 ~ 99
+    //11번 페이지일 경우, for($i = 100; $i < 100 + 10 &&  $i < 101; $i++) : $i = 100(종료)
 
-    for($i = 0; $i < $total_record; $i++){
+    for($i = $start; $i < $start + $scale && $i < $total_record; $i++){
         mysqli_data_seek($result, $i); //mysqli_data_seek(최종 데이터 값들, 레코딩 순번:작성된 순서의 행을 가리킴) : 다량의 데이터(행 데이터)에서 순번(인덱스번호)을 찾아서 각각 메모리 값을 구성시킴
         $row = mysqli_fetch_array($result);
         //var_dump($row);
@@ -115,9 +149,9 @@
         $subject = $row["subject"];
 
         if($mode == "send"){
-            //보낸 메세지 리스트
+            //보낸 메세지 리스트에서는 받은 사람이 필요
             $msg_id = $row["rv_id"];
-        }else{
+        }else{ //받은 메세지 리스트에서는 보낸 사람이 필요
             $msg_id = $row["send_id"];
         }
         $regist_day = $row["regist_day"];
@@ -125,12 +159,13 @@
 
 ?>
                 <li>
-                    <span class="field_1"><?=$num?></span>
-                    <span class="field_2"><?=$subject?></span>
+                    <span class="field_1"><?=$number?></span>
+                    <span class="field_2"><a href="./message_view.php?mode=<?=$mode?>&num=<?=$num?>&page=<?=$page?>"><?=$subject?></a></span>
                     <span class="field_3"><?=$msg_id?></span>
                     <span class="field_4"><?=$regist_day?></span>
                 </li>
 <?php
+        $number--;
     }
 ?>
 
@@ -138,14 +173,36 @@
             
             <ul id="page_num">
 <?php
-                //이전 이동 파트
+                //이전 페이지 이동 파트
+                //현재 페이지가 1번 페이지일 경우, 이전 버튼은 보이지 않도록 구성 ==> 이전 버튼이 보일 수 있는 조건은 2번 페이지로 진입했을 때
+
+                if($total_page >= 2 && $page >= 2){ //현재 모든 게시물을 담을 페이지 번호가 2 이상이고, 현재 페이지가 2번 페이지 이상일 경우
+                    $new_page = $page - 1;
+                    echo "<li><a href='./message_box.php?mode=$mode&page=$new_page'>◀ 이전</a></li>";
+                }
                 //<li><a href="">◀ 이전</a></li>
 
                 //각 메세지 리스트 넘버 부여
+                for($i = 1; $i <= $total_page; $i++){
+                    if($page == $i){  //내가 선택한 페이지와 화면에 보여지는 페이지에 대한 일치여부를 확인 
+                        echo "<li><span class='cur_page'>$i</span></li>";
+                    }else{
+                        echo "<li><a href='./message_box.php?mode=$mode&page=$i'>$i</a></li>";
+                    }
+                }
+
                 //<li><a href="">1</a></li>
                 //<li><a href="">2</a></li>
 
                 //다음 페이지 이동 파트
+                //만약 현재 페이지가 마지막 페이지를 보여주고 있고, 전체 페이지 개수가 현재 마지막 페이지를 보여주고 있지 않다면 다음이라는 버튼은 존재할 필요가 없음
+                //#1. 모든 페이지 개수가 1이 아니라면
+                //#2. 현재 페이지가 마지막 페이지가 아니라면
+                if($total_page >= 2 && $page != $total_page){
+                    $new_page = $page + 1;
+                    echo "<li><a href='./message_box.php?mode=$mode&page=$new_page'>다음 ▶</a></li>";
+                }
+
                 //<li><a href="">다음 ▶</a></li>
 
 ?>
@@ -153,9 +210,18 @@
 
 
             <ul class="msg_link">
-                <li><button type="button" onclick="location.href='./message_box.php?mode=rv'">받은 메세지</button></li>
-                <li><button type="button" onclick="location.href='./message_box.php?mode=send'">보낸 메세지</button></li>
-                <li><button type="button" onclick="location.href='./message_form.php'">메세지 보내기</button></li>
+                <li>
+                    <button type="button" onclick="location.href='./message_box.php?mode=rv'">받은 메세지</button>
+                </li>
+                <li>
+                    <button type="button" onclick="location.href='./message_box.php?mode=send'">보낸 메세지</button>
+                </li>
+                <li>
+                    <button type="button" onclick="location.href='./message_box.php?mode=<?=$mode?>&page=<?=$page?>'">목록보기</button>
+                </li>
+                <li>
+                    <button type="button" onclick="location.href='./message_form.php'">메세지 보내기</button>
+                </li>
             </ul>
         </div>
 

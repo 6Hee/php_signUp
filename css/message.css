@@ -151,21 +151,62 @@
     width: 200px;
 }
 
+#message_box #message_list #message li span a{
+    color: #555;
+}
+#message_box #message_list #message li span a:hover{
+    color: #21bda1;
+}
 
-#message_box #message_list .msg_link{
+#message_box #message_list #page_num{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 0;
+}
+
+#message_box #message_list #page_num li{
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+#message_box #message_list #page_num li a{
+    display: block;
+    color: #777;
+    line-height: 18px;
+    min-width: 30px;
+    text-align: center;
+}
+#message_box #message_list #page_num li:hover a{
+    color: #21bda1;
+}
+
+#message_box #message_list #page_num li .cur_page{
+    display: block;
+    width: 30px;
+    height: 30px;
+    line-height: 26px;
+    background-color: #21bda1;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+}
+
+
+#message_box .msg_link{
     display: flex;
     justify-content: flex-end;
     padding: 20px 0 40px;
 }
 
-#message_box #message_list .msg_link li{
+#message_box .msg_link li{
     margin: 0 5px;
 }
-#message_box #message_list .msg_link li:last-child{
+#message_box .msg_link li:last-child{
     margin-right: 0;
 }
 
-#message_box #message_list .msg_link li button{
+#message_box .msg_link li button{
     padding: 10px 20px;
     border: none;
     background-color: #fff;
@@ -175,7 +216,40 @@
     cursor: pointer;
     font-size: 17px;
 }
-#message_box #message_list .msg_link li:hover button{
+#message_box .msg_link li:hover button{
     background-color: #21bda1;
     color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#message_box #message_view{
+    padding-bottom: 20px;
+    border-bottom: 1px solid #777;
+}
+
+#message_box #message_view li{
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+    font-size: 14px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#message_box #message_view li span{
+    font-weight: bold;
+    width: 100px;
+    display: inline-block;
 }

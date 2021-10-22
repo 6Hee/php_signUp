@@ -1,3 +1,4 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://kit.fontawesome.com/09743b710b.js" crossorigin="anonymous"></script>
 
 <?php
@@ -84,7 +85,7 @@
         <div id="menu_bar">
             <ul>
                 <li><a href="./message_form.php">메시지 보내기</a></li>
-                <li><a href="">게시판</a></li>
+                <li><a href="./board_form.php">게시판</a></li>
             </ul>
         </div>
     </div>

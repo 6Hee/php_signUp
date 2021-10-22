@@ -67,8 +67,28 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 {view}
  - (메시지 작성 양식) message_form.php => js/message.js =submit()=> message_insert.php => message_box.php
  - (메시지 리스트) message_box.php
+ - (메시지 상세보기 - 각 메시지 제목 클릭시 해당하는 내용을 보여준다.) message_view.php
+ - (메시지 답장보내기) message_response_form.php
+ - (메시지 삭제하기) message_delete.php
+
 
 [board] 게시판 구성하기
+{DB - sql}
+ - db/board.sql(id : 작성자 아이디 / name : 작성자 이름 / subject : 게시글 제목 / content : 게시글 내용 / regist_day : 작성일 / hit : 조회수 / file_name : 업로드된 자료의 실제 이름 / file_type : 업로드된 자료의 파일 형식 / file_copied : 서버에 저장된 파일 이름 / notice : 공지 게시글 또는 일반게시글 구분(1 또는 0))
+
+{css}
+ - css/board.css
+{js}
+ - js/board.js
+{view}
+ - (메시지 작성 양식) message_form.php => js/message.js =submit()=> message_insert.php => message_box.php
+ - (메시지 리스트) message_box.php
+ - (메시지 상세보기 - 각 메시지 제목 클릭시 해당하는 내용을 보여준다.) message_view.php
+ - (메시지 답장보내기) message_response_form.php
+ - (메시지 삭제하기) message_delete.php
+
+ - (메시지 진입간 로그인 상태 확인) message_log_chk.php
+
 
 [product] 제품 리스트
 

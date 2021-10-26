@@ -139,7 +139,7 @@
     $sql = "insert into board (id, name, subject, content, regist_day, hit, file_name, file_type, file_copied, notice) ";
     $sql .= "values('$userid', '$username', '$subject', '$content', '$regist_day', 0, '$upfile_name', '$upfile_type', '$copied_file_name', '$notice')";
 
-
+    mysqli_query($con, $sql);
 
     //게시글 작성한 회원에게 포인트를 지급(게시글 1개당 10포인트 부여)
     //활동 점수에 대한 변수가 필요
@@ -148,7 +148,7 @@
     //각 회원별 포인트는 members라는 테이블의 필드 항목
     $sql = "select * from members where id='$userid'";
     $result = mysqli_query($con, $sql);
-    $row = mysqli_fetch_array($result);
+    $row = mysqli_fetch_array($result); //모든 데이터를 배열화시킴
     $point = $row["point"];
     //var_dump($point);
     $new_point = $point + $point_up;
@@ -173,5 +173,7 @@
             location.href='./board_list.php';
         </script>
     ");
+
+    
 
 ?>

@@ -91,6 +91,34 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 
 [product] 제품 리스트
+{DB - sql}
+ - db/products.sql ( 
+     id : 상품 등록자 아이디 
+     name : 상품 등록자 이름 
+     title : 상품 제목 
+     sub : 상품 부제
+     content : 상품 소개 내용
+     price : 상품 가격
+     fav : 좋아요 횟수
+     hit : 상품 조회수
+     regist_day : 상품 최초 등록일
+     file_name : 상품 이미지명
+     file_type : 상품 이미지 형식(jpg, jpeg, png, gif 제한 가능)
+     file_copied : 실제 DB에 저장될 이름 및 형식
+     )
+{css}
+ - css/products.css
+
+{js}
+ - js/products.js
+
+{view 구성}
+ - (상품등록) products_form.php ==> js/products.js =submit()=> products_insert.php
+ - (상품리스트) products_list.php
+ - (상품상세페이지) products_view.php = 좋아요 클릭시 ajax로 연동=> products_fav.php(페이지가 재로딩되는 부분을 막음)
+ - (메인화면 또는 상품 리스트에서 검색시 결과 리스트) products_search_list.php
+
+
 
 [FAQ - 과제] 자주하는 질문(관리자만 등록)
 

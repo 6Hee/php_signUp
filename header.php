@@ -84,6 +84,7 @@
         </div>
         <div id="menu_bar">
             <ul>
+                <li><a href="./products_form.php">프로그램</a></li>
                 <li><a href="./message_form.php">메시지 보내기</a></li>
                 <li><a href="./board_form.php">게시판</a></li>
             </ul>

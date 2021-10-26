@@ -108,15 +108,19 @@
 
     include "./db_con.php";
 
-    $sql = "update board set 
-    subject='$subject', 
-    content='$content', 
-    file_name='$upfile_name', 
-    file_type='$upfile_type', 
-    file_copied='$copied_file_name',
-    notice = '$notice where num='$num'
-    ";
+    $sql = "update board set subject='$subject', content='$content',file_name='$upfile_name', file_type='$upfile_type', file_copied='$copied_file_name',notice = '$notice' where num='$num'";
     mysqli_query($con, $sql);
     mysqli_close($con);
+
+
+    //업데이트(수정) 종료 이후에 리스트 항목으로 보낼 것이다. (조건 1) - $page 포함
+    echo ("
+        <script>
+            location.href='./board_list.php?page=$page';
+        </script>
+    ");
+
+
+    //업데이트(수정) 종료 이후에 상세 페이지로 보낼 것이다. (조건 2)
 
 ?>

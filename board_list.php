@@ -40,40 +40,67 @@
 <?php
     include "./db_con.php";
 
+    if(isset($_GET["page"])){    //http://localhost/oclass/board_list.php?page=2
+        $page = $_GET["page"];
+    }else{    //http://localhost/oclass/board_list.php
+        $page = 1;
+    }
+
 ?>
 
 
-                <!--공지 게시글-->
-
-                <!--
+                <!--공지 게시글 - 상위 분리방법-->
+<?php
+        //현재 페이지 번호가 1번 페이지라면, 공지사항을 보여준다.
+        if($page == 1){
+            $notice = "1"; //공지 게시글로 등록된 공지여부를 표기
+            $sql = "select * from board where notice='$notice' order by num desc";
+            $result = mysqli_query($con, $sql);
+            $row_num = mysqli_num_rows($result);
+            //var_dump($row_num);
+            for($i = 0; $i < $row_num; $i++){
+                mysqli_data_seek($result, $i); //mysqli_data_seek(여러 행 데이터 값들, 인덱스 번호)
+                $row = mysqli_fetch_array($result);
+                //var_dump($row);
+                $num = $row["num"];
+                $name = $row["name"];
+                $subject = $row["subject"];
+                $regist_day = $row["regist_day"];
+                $hit = $row["hit"];
+                if($row["file_name"]){  //DB에 첨부파일이 존재한다면, 첨부파일 이미지를 보여준다.
+                    $file_name = "<img src='./img/clip.gif'>";
+                }else{   //DB에 첨부파일이 존재하지 않다면, 첨부파일 이미지를 보여주지 않는다.
+                    $file_name = "";
+                }
+                
+?>              
                 <li class="notice">
                     <span class="field_1">[공지]</span>
-                    <span class="field_2">제목</span>
-                    <span class="field_3">홍길동</span>
-                    <span class="field_4"><img src="./img/clipL.gif" alt=""></span>
-                    <span class="field_5">작성일</span>
-                    <span class="field_6">조회수</span>
+                    <span class="field_2"><a href="./board_view.php?num=<?=$num?>&page=<?=$page?>"><?=$subject?></a></span>
+                    <span class="field_3"><?=$name?></span>
+                    <span class="field_4"><?=$file_name?></span>
+                    <span class="field_5"><?=$regist_day?></span>
+                    <span class="field_6"><?=$hit?></span>
                 </li>
-                -->
+<?php
+            }
+        }
+?>
+
 
 
 
 
                 <!--일반 게시글-->
 <?php
-                if(isset($_GET["page"])){
-                    //http://localhost/oclass/board_list.php?page=2
-                    $page = $_GET["page"];
-                }else{
-                    //http://localhost/oclass/board_list.php
-                    $page = 1;
-                }
+
+                $sql = "select * from board where notice not in('1') order by num desc"; //num의 항목을 기준으로 반대 방향으로 선택하겠다는 의미
+                //sql 구문 작성시 순서(Read 파트) 선택할 컬럼명 -> 조건 -> 순서정렬
+                //select 컬럼 선택 from 테이블명 where 특정 컬럼명 not in('제외할 데이터 값1', '제외할 데이터 값2', ....) ===> 테이블로부터 컬럼을 선택하여 가져오는데, 특정 컬럼명에서 제외할 데이터값을 제외시키고 가져온다.
+                //order by num desc ===> num 순서대로 가져오는데 거꾸로 가져온다.
 
 
 
-
-
-                $sql = "select * from board order by num desc"; //num의 항목을 기준으로 반대 방향으로 선택하겠다는 의미
                 $result = mysqli_query($con, $sql);
                 $total_record = mysqli_num_rows($result); //전체 데이터의 개수
                 //var_dump($total_record);
@@ -114,7 +141,7 @@
 
 
 
-                
+
                 for($i = $start; $i < $start + $scale && $i < $total_record; $i++){
                     mysqli_data_seek($result, $i); //가져올 각각의 위치($i : 인덱스 번호)로 찾는 작업을 수행
                     $row = mysqli_fetch_array($result);

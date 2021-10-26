@@ -29,7 +29,13 @@
     //var_dump($content);
 
     $regist_day = date("Y-m-d (H:i)");
-    $notice = $_POST["notice"];
+
+
+    if(isset($_POST["notice"])){   //관리자가 일반 게시글 또는 공지 게시글 선택한 값을 DB에 저장
+        $notice = $_POST["notice"];
+    }else{   //일반회원이 게시글을 작성했을 때 -> 일반
+        $notice = "0";
+    }
 
     //첨부파일 저장하는 구성
     //첨부파일의 저장 공간은 data 폴더

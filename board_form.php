@@ -71,6 +71,10 @@
                         </div>
                     </li>
                     <!--공지/일반 여부 추가-->
+<?php
+    if($userlevel == 1){
+?>
+
                     <li>
                         <div class="label_box">
                             <label for="notice1">공지여부</label>
@@ -78,10 +82,16 @@
                         <div class="input_box">
                             <select name="notice" id="notice1">
                                 <option value="0" selected>일반 게시글</option>
+
+
                                 <option value="1">공지 게시글</option>
                             </select>
                         </div>
                     </li>
+
+<?php
+    }
+?>
                 </ul>
                 <ul class="buttons">
                     <li><button type="button" onclick="check_input();">작성 완료</button></li>

@@ -84,15 +84,26 @@
             if(!$spot){
                 echo ("
                     <script>
-
                         location.href='./';
                     </script>
                 ");
             }elseif($spot == "message"){
                 echo ("
                     <script>
-
                         location.href='./message_form.php';
+                    </script>
+                ");
+            }elseif($spot == "board"){
+                echo ("
+                    <script>
+                        location.href='./board_form.php';
+                    </script>
+                ");
+            }elseif($spot == "products"){
+                echo ("
+                    <script>
+                        history.go(-1);
+                        location.href='./products_form.php';
                     </script>
                 ");
             }

@@ -1,12 +1,21 @@
 <?php
 
-    //http://localhost/oclass/login_form.php?spot=message
+    //(메세지로부터 유입)http://localhost/oclass/login_form.php?spot=message
+    //(게시판으로부터 유입)http://localhost/oclass/login_form.php?spot=board
+    //(프로그램 작성 페이지로부터 유입)http://localhost/oclass/login_form.php?spot=products
+    //(프로그램 상세 페이지에서 좋아요 버튼 클릭시)http://localhost/oclass/login_form.php?spot=productsFav&pdNum=10
+
     if(isset($_GET["spot"])){
         $spot = $_GET["spot"];
     }else{
         $spot = "";
     }
-    var_dump($spot);
+    //var_dump($spot);
+    if(isset($_GET["pdNum"])){
+        $pdNum = $_GET["pdNum"];
+    }else{
+        $pdNum = "";
+    }
 
 
     $id = $_POST["id"];
@@ -102,8 +111,13 @@
             }elseif($spot == "products"){
                 echo ("
                     <script>
-                        history.go(-1);
                         location.href='./products_form.php';
+                    </script>
+                ");
+            }elseif($spot == "productsFav"){
+                echo ("
+                    <script>
+                        location.href='./products_view.php?num=$pdNum';
                     </script>
                 ");
             }

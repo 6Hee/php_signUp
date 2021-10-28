@@ -1,0 +1,207 @@
+@charset "utf-8";
+
+#main_banner{
+    width: 100%;
+    height: 75vh;
+    background-color: #ddd;
+    overflow: hidden;
+}
+
+#main_banner .main_img_cont{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+#main_banner .main_img_cont ul#slider{
+    height: 100%;
+}
+
+#main_banner .main_img_cont ul#slider li[class="slide"]{
+    height: 75vh;
+}
+
+#main_banner .main_img_cont ul#slider li .slide_img{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+}
+
+#main_banner .main_img_cont ul#slider li .slide_img .wrap{
+    width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+#main_banner .main_img_cont ul#slider li .slide_img .wrap .txt_space{
+    position: absolute;
+    width: 36%;
+    left: 20px; top: 50%;
+    /*transform: translateY(-25%);*/
+    padding: 20px 30px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#main_banner .main_img_cont ul#slider li .slide_img .wrap .txt_space h2{
+    font-size: 24px;
+    color: #fff;
+    padding-bottom: 10px;
+}
+
+#main_banner .main_img_cont ul#slider li .slide_img .wrap .txt_space p{
+    font-size: 18px;
+    color: #ddd;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 20px;
+}
+
+#main_banner .main_img_cont ul#slider li .slide_img .wrap .txt_space a{
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #21bda1;
+    color: #fff;
+    border-radius: 4px;
+    font-weight: 300;
+}
+
+#main_banner .slick-dots{
+    bottom: 20px;
+    z-index: 10;
+}
+#main_banner .slick-dots li{
+    width: 30px;
+    height: 5px;
+    padding: 0;
+    transition: width 0.3s;
+}
+#main_banner .slick-dots li button{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+#main_banner .slick-dots li button::before{
+    width: 100%;
+    height: 100%;
+    content: "";
+    opacity: 1;
+    background: #fff;
+}
+#main_banner .slick-dots li.slick-active{
+    width: 50px;
+}
+#main_banner .slick-dots li.slick-active button::before{
+    background-color: #21bda1;
+}
+
+.main_cont{
+    width: 100%;
+    padding: 60px 0 80px;
+}
+
+.main_cont .program{
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.main_cont .program h2{
+    font-size: 24px;
+    color: #555;
+    text-align: center;
+}
+
+.main_cont .program ul{
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 40px;
+}
+
+.main_cont .program ul li{
+    width: calc(25% - 20px);
+    margin: 0 10px 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.main_cont .program ul li .pd_img{
+    width: 100%;
+    height: 160px;
+    border-radius: 3px;
+    overflow: hidden;
+    position: relative;
+    background-color: #eee;
+}
+
+.main_cont .program ul li .pd_img .pd_bg{
+    position: absolute;
+    width: 120%;
+    height: 120%;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    background-size: cover;
+    background-position: 50% 50%;
+    /*background-image: url(../img/products_img/class_21.png);*/
+    transition: transform 0.3s;
+}
+
+.main_cont .program ul li:hover .pd_img .pd_bg{
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+.main_cont .program ul li .pd_cont{
+    padding: 20px 0 0;
+}
+
+.main_cont .program ul li .pd_cont .pd_title{
+    font-size: 17px;
+    font-weight: 400;
+    color: #555;
+    padding-bottom: 10px;
+}
+
+.main_cont .program ul li .pd_cont .pd_sub{
+    font-size: 15px;
+    color: #777;
+    font-weight: 300;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+.main_cont .program ul li .pd_cont .pd_info{
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.main_cont .program ul li .pd_cont .pd_info .pd_price{
+    font-size: 15px;
+    color: #21bda1;
+}
+
+.main_cont .program ul li .pd_cont .pd_info .pd_price span{
+    font-size: 17px;
+}
+
+.main_cont .program ul li .pd_cont .pd_info .pd_fav{
+    display: flex;
+    align-items: center;
+    color: #21bda1;
+}
+
+.main_cont .program ul li .pd_cont .pd_info .pd_fav img{
+    margin-right: 5px;
+    display: block;
+    width: 20px;
+}
+
+.main_cont .program ul li .pd_cont .pd_info .pd_fav span{
+    display: block;
+    font-size: 13px;
+}

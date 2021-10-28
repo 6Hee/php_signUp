@@ -101,17 +101,259 @@
     resize: none;
     border-radius: 4px;
 }
-/*
-#product_form li  .input_box input[type="file"]{
-    padding: 10px 20px;
+
+
+
+
+/* 프로그램 리스트 */
+#product_list{
+    width: 100%;
+    padding: 20px 10px 0;
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#product_list li{
+    width: calc(25% - 20px);
+    margin: 0 10px 20px;
+    background-color: #fff;
+    border: 1px solid #eee;
+    padding: 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+}
+
+#product_list li:hover{
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
+}
+
+#product_list li .pd_img{
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 3px;
+    background-color: #ffd;
+}
+
+#product_list li .pd_img .img{
+    width: 100%;
+    height: 120%;
+    position: absolute;
+    top: 50%; left: 50%;
+    background-color: #faa;
+    transform: translate(-50%, -50%);
+    transition: transform 0.5s;
+    
+
+    background-color: #faa;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-image: url(../img/products_img/class_22.png);
+}
+
+#product_list li:hover .pd_img .img{
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+#product_list li .pd_title{
+    padding: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+#product_list li .pd_sub{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    padding-bottom: 10px;
+    font-size: 16px;
+    color: #777;
+}
+
+#product_list li .pd_info{
+    border-top: 1px solid #eee;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#product_list li .pd_info .pd_price{
+    font-weight: 500;
+    color: #21bda1;
+    font-size: 14px;
+}
+
+#product_list li .pd_info .pd_price span{
+    font-size: 17px;
+}
+
+#product_list li .pd_fav{
+    font-size: 14px;
+    color: #777;
+}
+
+
+
+/* 프로그램 상세 페이지 */
+#product_detail{
+    width: 100%;
+    padding: 40px 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#product_detail .pd_view{
+    width: calc(50% - 20px);
+    height: 360px;
+    margin: 0 10px 20px;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-color: #f1f1f1;
+}
+
+#product_detail .pd_txt{
+    width: calc(50% - 20px);
+    margin: 0 10px 20px;
+}
+
+#product_detail .pd_txt .pd_title{
+    padding: 10px 0;
+    font-size: 22px;
+    color: #555;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#product_detail .pd_txt .pd_title .fav_icon{
+    display: block;
+}
+
+#product_detail .pd_txt .pd_title .fav_icon img{
+    width: 24px;
+    cursor: pointer;
+}
+
+#product_detail .pd_txt .pd_etc{
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+
+#product_detail .pd_txt .pd_etc .pd_price{
+    font-size: 20px;
+    color: #21bda1;
+    font-weight: 500;
+}
+
+#product_detail .pd_txt .pd_etc .pd_price span{
+    font-size: 24px;
+}
+
+#product_detail .pd_txt .pd_etc .pd_fav{
+    font-size: 15px;
+    color: #555;
+}
+
+
+
+
+
+
+/* 프로그램 검색 (products_list.php, products_search_list.php) */
+#search{
+    background-color: #333;
+    padding: 20px 0;
+}
+
+#search .wrap{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#search .wrap form{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#search .wrap form input{
+    width: calc(100% - 160px);
+    margin: 0 10px;
+    border: none;
+    padding: 0 10px;
+    line-height: 40px;
+    border-radius: 4px;
+    color: #777;
+    font-size: 17px;
+    background-color: #fff;
+}
+
+#search .wrap form button{
+    width: 120px;
+    margin: 0 10px;
+    border: none;
+    line-height: 40px;
     background-color: #21bda1;
     color: #fff;
-    border: none;
+    font-size: 17px;
+    cursor: pointer;
     border-radius: 4px;
 }
 
-#product_form li  .input_box input:hover{
-    background-color: #019d81;
-    
+
+
+#search_result{
+    padding: 10px 0;
+    background-color: #eee;
 }
-*/
+
+#search_result h3{
+    font-size: 15px;
+    color : #777;
+    padding: 0 10px;
+    text-align: center;
+}
+
+#search_result h3 span{
+    color: #21bda1;
+    font-size: 17px;
+}
+
+
+
+
+/* 리스트 sort */
+#sort_btn{
+    padding: 20px 0 0;
+}
+
+#sort_btn ul{
+    display: flex;
+}
+
+#sort_btn ul li{
+    margin: 0 5px;
+}
+
+#sort_btn ul li button{
+    padding: 10px 20px;
+    border: 1px solid #21bda1;
+    color: #21bda1;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+#sort_btn ul li button.active ,#sort_btn ul li button:hover{
+    color: #fff;
+    background-color: #21bda1;
+}

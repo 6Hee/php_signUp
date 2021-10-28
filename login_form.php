@@ -11,7 +11,10 @@
 <body>
 
 <?php
-    //http://localhost/oclass/login_form.php?spot=message
+    //(메세지로부터 유입)http://localhost/oclass/login_form.php?spot=message
+    //(게시판으로부터 유입)http://localhost/oclass/login_form.php?spot=board
+    //(프로그램 작성 페이지로부터 유입)http://localhost/oclass/login_form.php?spot=products
+    //(프로그램 상세 페이지에서 좋아요 버튼 클릭시)http://localhost/oclass/login_form.php?spot=productsFav&pdNum=10
 
     if(isset($_GET["spot"])){
         $spot = $_GET["spot"];
@@ -19,7 +22,12 @@
     }else{
         $spot = "";
     }
-    var_dump($spot)
+    //var_dump($spot);
+    if(isset($_GET["pdNum"])){
+        $pdNum = $_GET["pdNum"];
+    }else{
+        $pdNum = "";
+    }
 ?>
 
 
@@ -38,7 +46,7 @@
 
         <div id="main_content">
             <div id="login_box">
-                <form name="login_form" action="./login_ok.php?spot=<?=$spot?>" method="post">
+                <form name="login_form" action="./login_ok.php?spot=<?=$spot?>&pdNum=<?=$pdNum?>" method="post">
                     <h2>로그인</h2>
                     <ul>
                         <li><input type="text" name="id" placeholder="아이디 입력" autocomplete="off"></li>

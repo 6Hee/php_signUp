@@ -21,9 +21,9 @@
         $username = "";
     }
 
-    $title = $_POST["title"];
-    $sub = $_POST["sub"];
-    $content = $_POST["content"];
+    $title = str_replace("'", "&#39;", $_POST["title"]);
+    $sub = str_replace("'", "&#39;", $_POST["sub"]);
+    $content = str_replace("'", "&#39;", $_POST["content"]);
     $price = $_POST["price"];
     $regist_day = date("YmdHis");
     //var_dump($regist_day);
@@ -38,6 +38,10 @@
     $upfile_type = $_FILES["upfile"]["type"]; //첨부파일의 파일형식
     $upfile_size = $_FILES["upfile"]["size"]; //첨부파일의 크기
     $upfile_error = $_FILES["upfile"]["error"]; //파일의 정상 또는 비정상
+
+
+    var_dump($upfile_size);
+
 
     if($upfile_name && !$upfile_error){
         $file_replace = substr_replace($upfile_name, "|", strrpos($upfile_name, "."), 1);
@@ -55,7 +59,7 @@
             $new_file_name = date("Y_m_d_H_i_s");
             $copied_file_name = $new_file_name.".".$file_ext;
             $uploaded_file = $upload_dir.$copied_file_name;
-            if($upload_size > 5000000){ //첨부파일의 용량이 5mb를 초과한다면
+            if($upfile_size > 5000000){ //첨부파일의 용량이 5mb를 초과한다면
                 echo ("
                     <script>
                         alert('업로드한 파일의 크기가 5MB를 초과했습니다. \n파일 사이즈를 조정하여 다시 업로드 바랍니다.');
@@ -74,9 +78,29 @@
             </script>
         ");
         }
+
+
+    }else{  //파일 이름이 존재하지 않거나 또는 에러가 발생하였다면
+
+        $upfile_name = "";
+        $upfile_type = "";
+        $copied_file_name = "";
+
     }
 
+    //DB 전송
+    include "./db_con.php";
+    $sql = "insert into products (id, name, title, sub, content, price, fav, hit, regist_day, file_name, file_type, file_copied)";
+    $sql .= "values('$userid', '$username', '$title', '$sub', '$content', '$price', 0, 0, '$regist_day', '$upfile_name', '$upfile_type', '$copied_file_name')";
 
+    mysqli_query($con, $sql);
+    mysqli_close($con);
+
+    echo ("
+        <script>
+            location.href='./products_list.php';
+        </script>    
+    ");
     /*
 
     if($upfile_type == "image/png" || $upfile_type == "image/jpg" || $upfile_type == "image/jpeg" || $upfile_type == "image/gif"){

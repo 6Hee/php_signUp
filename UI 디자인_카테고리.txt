@@ -111,12 +111,14 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 {js}
  - js/products.js
+ - js/products_view.js
+ - js/products_search.js
 
 {view 구성}
  - (상품등록) products_form.php ==> js/products.js =submit()=> products_insert.php
  - (상품리스트) products_list.php
  - (상품상세페이지) products_view.php = 좋아요 클릭시 ajax로 연동=> products_fav.php(페이지가 재로딩되는 부분을 막음)
- - (메인화면 또는 상품 리스트에서 검색시 결과 리스트) products_search_list.php
+ - (메인화면 또는 상품 리스트(products_list.php)에서 검색시 결과 리스트) => products_search.js == > products_search_list.php
 
 
 

@@ -122,10 +122,43 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 
 
+
+
+
+[관리자 페이지]
+{DB - sql}
+ - 없음
+{css}
+ - css/admin.css
+
+{js}
+ - 없음
+
+{view 구성}
+ - (관리자 화면) admin.php
+ - (관리자 화면 - 회원강퇴 기능) admin_member_delete.php
+ - (관리자 화면 - 회원정보 수정 기능) admin_member_modify.php
+ - (관리자 화면 - 게시판 관리 삭제 기능) admin_board_delete.php
+
+
 [FAQ - 과제] 자주하는 질문(관리자만 등록)
+{DB 구성}
+ - db/faq.sql
+
+{css}
+ - css/faq.css
+
+{js}
+ - js/faq.js
+
+{view 구성}
+ - (faq 작성 양식) faq_form.php ==> js/faq.js ==submit()==> faq_insert.php
+ 
+
 
 [[관리자 페이지]] 전체 회원 통제, 게시판 통제, 제품 리스트 통제
     [신규 회원가입]
         <전체 통제 가능한 관리자>
         - admin / 기술책임 
         - DB에서 직접 찾아서 수정이라는 위치를 클릭 -> 레벨만 9 ~> 1로 변경
+

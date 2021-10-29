@@ -65,7 +65,7 @@
 <?php
     }
     //레벨 1인 경우만 관리자로 인식하여 웹 사이트 관리자 페이지로 입장 가능하도록 구성
-    if($userlevel == 1){
+    if($userlevel == 1 && $userid == "admin"){
 ?>
         <li><a href="./admin.php">관리자</a></li>
 <?php

@@ -29,7 +29,7 @@
 }
 
 #main_banner .main_img_cont ul#slider li .slide_img .wrap{
-    width: 1000px;
+    width: 1200px;
     height: 100%;
     margin: 0 auto;
     position: relative;
@@ -68,6 +68,10 @@
     font-weight: 300;
 }
 
+
+
+
+
 #main_banner .slick-dots{
     bottom: 20px;
     z-index: 10;
@@ -97,6 +101,60 @@
     background-color: #21bda1;
 }
 
+
+
+
+#main_banner .slick-prev, #main_banner .slick-next{
+    z-index: 10;
+    width: 60px;
+    height: 60px;
+    transition: left 0.5s, right 0.5s;
+}
+#main_banner .slick-prev{
+    left: -80px;
+}
+#main_banner .slick-next{
+    right: -80px;
+}
+#main_banner:hover .slick-prev{
+    left: 20px;
+}
+#main_banner:hover .slick-next{
+    right: 20px;
+}
+#main_banner .slick-prev::before{
+    content: "";
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: absolute;
+    background-image: url(../img/arrow_left.svg);
+    background-size: cover;
+    background-position: 50% 50%;
+    left: 0;
+}
+#main_banner .slick-next::before{
+    content: "";
+    width: 60px;
+    height: 60px;
+    display: block;
+    position: absolute;
+    background-image: url(../img/arrow_right.svg);
+    background-size: cover;
+    background-position: 50% 50%;
+    right: 0;
+}
+#main_banner .slick-prev:hover::before{
+    background-image: url(../img/arrow_left_h.svg);
+}
+#main_banner .slick-next:hover::before{
+    background-image: url(../img/arrow_right_h.svg);
+}
+
+
+
+
+
 .main_cont{
     width: 100%;
     padding: 60px 0 80px;
@@ -111,6 +169,17 @@
     font-size: 24px;
     color: #555;
     text-align: center;
+    position: relative;
+    line-height: 40px;
+}
+
+.main_cont .program h2 a{
+    position: absolute;
+    right: 15px; top: 0;
+    line-height: 40px;
+    display: block;
+    font-size: 20px;
+    color: #21bda1;
 }
 
 .main_cont .program ul{
@@ -204,4 +273,142 @@
 .main_cont .program ul li .pd_cont .pd_info .pd_fav span{
     display: block;
     font-size: 13px;
+} 
+
+
+#main_info{
+    width: 100%;
+    padding: 20px 0;
+    background-color: #259;
 }
+
+#main_info .wrap{
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#main_info .wrap .board{
+    width: 60%;
+    padding: 0 10px;
+}
+
+#main_info .wrap .board h2{
+    font-size: 18px;
+    line-height: 40px;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+
+#main_info .wrap .board h2 a{
+    position: absolute;
+    top: 0; right: 0;
+    display: block;
+    line-height: 40px;
+    color: #aaa;
+    transition: color 0.5s;
+}
+
+#main_info .wrap .board h2 a:hover{
+    color: #fff;
+}
+
+#main_info .wrap .board ul{}
+
+#main_info .wrap .board ul li{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #999;
+}
+#main_info .wrap .board ul li span{
+    display: block;
+    font-size: 14px;
+    color: #ddd;
+    padding: 0 5px;
+    line-height: 36px;
+    transition: color 0.5s;
+}
+
+#main_info .wrap .board ul li span.field1{
+    width: calc(100% - 240px);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+#main_info .wrap .board ul li span.field2{
+    width: 120px;
+    text-align: center;
+}
+
+#main_info .wrap .board ul li span.field3{
+    width: 120px;
+    text-align: right;
+}
+
+#main_info .wrap .board ul li:hover span{
+    color: #fff;
+}
+
+#main_info .wrap .board ul li span a{
+    color: #ddd;
+    transition: color 0.5s;
+}
+
+#main_info .wrap .board ul li:hover span a{
+    color: #fff;
+}
+
+#main_info .wrap .board ul li.board_blank{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+#main_info .wrap .member{
+    width: 40%;
+    padding: 0 10px;
+}
+#main_info .wrap .member h2{
+    font-size: 18px;
+    line-height: 40px;
+    color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: relative;
+}
+#main_info .wrap .member ul{
+    height: 185px;
+}
+#main_info .wrap .member ul li{
+    display: flex;
+    flex-wrap: wrap;
+    border-bottom: 1px solid #999;
+}
+#main_info .wrap .member ul li span{
+    display: block;
+    font-size: 14px;
+    color: #ddd;
+    padding: 0 5px;
+    line-height: 36px;
+    transition: color 0.5s;
+    text-align: center;
+}
+#main_info .wrap .member ul li span.field1{width: 10%; text-align: left;}
+#main_info .wrap .member ul li span.field2{width: 30%;}
+#main_info .wrap .member ul li span.field3{width: 30%;}
+#main_info .wrap .member ul li span.field4{width: 30%; text-align: right;}
+
+#main_info .wrap .member ul li.member_blank{
+    width: 100%; 
+    height: 100%; 
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+}
+

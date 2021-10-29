@@ -1,0 +1,143 @@
+@charset "utf-8";
+
+
+#admin_box{
+    width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+#admin_box h2{
+    border-bottom: 1px solid #777;
+    font-size: 20px;
+    padding-bottom: 20px;
+    color: #555;
+}
+
+#member_list{
+    padding: 20px 0;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 40px;
+}
+
+#member_list li{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 10px 0;
+}
+
+#member_list li:first-child{
+    font-weight: 500;
+    border-bottom: 1px solid #999;
+}
+
+#member_list li:last-child{
+    border-bottom: 1px solid #555;
+}
+
+#member_list li:nth-child(even){
+    background-color: #f0f0f0;
+}
+
+#member_list li span{
+    font-size: 14px;
+    display: block;
+    text-align: center;
+    line-height: 24px;
+}
+
+#member_list li span.field1{width: 50px;}
+#member_list li span.field2{width: 150px;}
+#member_list li span.field3{width: 150px;}
+#member_list li span.field4{width: 200px;}
+#member_list li span.field5{width: 200px;}
+#member_list li span.field6{width: calc(100% - 950px);}
+#member_list li span.field7{width: 100px;}
+#member_list li span.field8{width: 100px;}
+
+#member_list li span input{
+    width: 80%;
+    height: 36px;
+    text-align: center;
+}
+
+#member_list li span button{
+    width: 60%;
+    height: 36px;
+    border: none;
+    border-radius: 4px;
+    background-color: #555;
+    color: #fff;
+    cursor: pointer;
+}
+
+#member_list li span button:hover{
+    background-color: #f00;
+}
+
+#member_list li form{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+/*게시판 관리*/
+#board_list{
+    padding: 20px 0; 
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 40px;
+}
+
+#board_list li{
+    display: flex; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    padding: 10px 0;
+}
+
+#board_list li:first-child{
+    font-weight: 500; 
+    border-bottom: 1px solid #999;
+}
+
+#board_list li:last-child{
+    border-bottom: 1px solid #555;
+}
+
+#board_list li:nth-child(even){
+    background-color: #f0f0f0;
+}
+
+#board_list li span{
+    font-size: 14px; 
+    display: block; 
+    text-align: center; 
+    line-height: 24px; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    padding: 0 5px;
+}
+
+#board_list li span.field1{width: 50px;}
+#board_list li span.field2{width: 50px;}
+#board_list li span.field3{width: 150px;}
+#board_list li span.field4{width: calc(100% - 700px); text-align: left;}
+#board_list li span.field5{width: 250px; text-align: left;}
+#board_list li span.field6{width: 200px;}
+
+button.sel_del{
+    padding: 10px 20px; 
+    border:none;
+    font-size: 15px; 
+    border-radius:4px; 
+    background-color: #555; 
+    color:#fff; 
+    cursor: pointer;
+}
+button.sel_del:hover{
+    background-color: #f00;
+}

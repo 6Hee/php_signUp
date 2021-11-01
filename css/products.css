@@ -1,5 +1,7 @@
 @charset "utf-8";
 
+*{box-sizing: border-box;}
+ul, li{margin: 0; padding: 0; list-style: none;}
 
 /* 프로그램 공통 */
 #product_box{
@@ -356,4 +358,75 @@
 #sort_btn ul li button.active ,#sort_btn ul li button:hover{
     color: #fff;
     background-color: #21bda1;
+}
+
+
+/*프로그램 상세 페이지 - 수량 선택*/
+#product_detail .pd_txt .pd_ea{
+    padding: 10px 0; 
+    background-color: #ccc; 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    align-items: center;
+}
+
+#product_detail .pd_txt .pd_ea > div{
+    margin: 0 10px; 
+    color:#999; 
+    font-size: 14px;
+}
+
+#product_detail .pd_txt .pd_ea > div h4{
+    color:#777; 
+    font-size: 16px;
+}
+
+#product_detail .pd_txt .pd_ea > div input{
+    height: 36px; 
+    width: 70px; 
+    text-align: center; 
+    border: none; 
+    border-radius:4px; 
+    font-size: 16px; 
+    color:#777;
+}
+
+/*프로그램 상세 페이지 - Review*/
+#product_review{
+    padding-top: 40px; 
+    padding: 0 10px;
+}
+
+#product_review #review_write{
+    border-top: 1px solid #aaa; 
+    padding: 10px 0;
+}
+
+#product_review #review_write h3{
+    font-size: 17px; 
+    font-weight: 300; 
+    color:#777;
+}
+
+#product_review #review_write .review_starSpace{
+    display: flex; 
+    align-items: center; 
+    flex-wrap: wrap;
+}
+
+#product_review #review_write .review_starSpace .review_starChk{
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+#product_review #review_write .review_starSpace .review_starChk li{
+    margin: 0 5px; 
+    font-size: 18px; 
+    color:#aaa; 
+    cursor: pointer;
+}
+
+#product_review #review_write .review_starSpace .review_starChk li.active{
+    color:#f90;
 }

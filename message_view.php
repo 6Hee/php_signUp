@@ -122,6 +122,11 @@
         </div>
     </section>
 
+<?php
+    $readed = "1";
+    $sql = "update message set readed='$readed' where num='$num'";
+
+?>
 
 
     <footer>

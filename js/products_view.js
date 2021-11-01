@@ -37,4 +37,33 @@ $(document).ready(function(){
         return false;
     });
 
+
+    //리뷰 파트 
+    //리뷰 별점 값 가져오기
+    $(".review_starChk li").click(function(){
+        var $rel = $(this).attr("rel");
+        $(".star_rel").text($rel);
+        $("[name='star_score']").val($rel); //php에서 $_POST로 가져갈 값을 미리 넣는다.
+
+        $(".review_starChk li").removeClass("active");
+        $(this).addClass("active").prevAll().addClass("active");
+    });
+
+
 });
+
+
+function review_enroll(){
+    if(!document.product_review.star_score.value){
+        alert("리뷰를 위한 별점을 찍어주세요.");
+        return;
+    }
+
+    if(!document.product_review.content.value){
+        alert("리뷰를 위한 내용을 작성해 주세요.");
+        document.product_review.content.focus();
+        return;
+    }
+
+    document.product_review.submit();
+}

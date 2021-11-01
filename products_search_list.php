@@ -105,6 +105,9 @@
         }
 
 
+
+
+//sort 버튼을 클릭시 검색어가 없기 때문에 이전 products_search_list.php 를 열어준 검색어를 미리 조건으로 넣는다.
         
     }elseif($word){
         if(!$sort){  //최초로 상단 메뉴인 프로그램 메뉴로부터 접근
@@ -149,6 +152,7 @@
                 </ul>
             </div>
 <?php
+    //products_search_list.php에서 검색어 입력 없이 sort버튼만 클릭하여 접근한 상태
     }elseif($word){
 ?>
 
@@ -199,14 +203,14 @@
             </ul>
 <?php
     if($userid){  //로그인한 사용자만 접근
-        if($userlevel < 6){  //레벨값이 6 미만인 사용자만 접근 = 판매자
+        //if($userlevel < 6){  //레벨값이 6 미만인 사용자만 접근 = 판매자
     
 ?>
             <ul class="buttons">
                 <li><button type="button" onclick="location.href='./products_form.php'">등록하기</button></li>
             </ul>
 <?php
-        }
+        //}
     }
 ?>
         </div>

@@ -124,14 +124,14 @@
             </ul>
 <?php
     if($userid){  //로그인한 사용자만 접근
-        if($userlevel < 6){  //레벨값이 6 미만인 사용자만 접근 = 판매자
+        //if($userlevel < 6){  //레벨값이 6 미만인 사용자만 접근 = 판매자
     
 ?>
             <ul class="buttons">
                 <li><button type="button" onclick="location.href='./products_form.php'">등록하기</button></li>
             </ul>
 <?php
-        }
+        //}
     }
 ?>
         </div>

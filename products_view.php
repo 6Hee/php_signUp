@@ -22,7 +22,7 @@
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_array($result);
 
-
+    $id = $row["id"];  //추후 "예약 문의" 용도의 메시지 보내기
     $title = $row["title"];
     $sub = $row["sub"];
     $content = $row["content"];
@@ -69,9 +69,68 @@
                         <div class="pd_fav" rel="<?=$num?>" data-userid="<?=$userid?>">좋아요&nbsp;<span><?=$fav?></span></div>
                         <input type="hidden" class="cur_fav" name="cur_fav" value="">
                     </div>
+
+                    <div class="pd_ea">
+                        <div><h4>예약시간</h4></div>
+                        <div><input type="text" value="1"></div>
+                    </div>
+
+                    <ul class="pd_btn buttons">
+
+<?php
+    if($userid){
+?>
+
+                   
+                        <li><button type="button" onclick="location.href='./message_form.php?num=<?=$num?>&id=<?=$id?>'">예약 문의</button></li><!--메세지 발송-->
+<?php
+    }
+?>
+                        <li><button type="button">카트 담기</button></li>
+<?php
+    if($userid){
+?>
+                        <li class="review_open"><button type="button">리뷰 등록</button></li>
+<?php
+    }
+?>
+                    </ul>
+
+                    
                 </div>
             </div>
-        </div>
+
+            <!--리뷰 시작-->
+            <div id="product_review">
+                <div id="review_write">
+                    <h3>리뷰 등록</h3>
+                    <form name="product_review" action="./products_review_insert.php?num=<?=$num?>" method="post">
+                        <div class="review_starSpace">
+                            <ul class="review_starChk">
+                                <li rel="1"><i class="fas fa-star"></i></li>
+                                <li rel="2"><i class="fas fa-star"></i></li>
+                                <li rel="3"><i class="fas fa-star"></i></li>
+                                <li rel="4"><i class="fas fa-star"></i></li>
+                                <li rel="5"><i class="fas fa-star"></i></li>
+                            </ul>
+                            <p><span class="star_rel">0</span> / 5</p>
+                            <input type="text" name="star_score" value="">
+                        </div>
+                        <div class="review_textWrite">
+                            <h4><?=$userid?></h4>
+                            <textarea name="content" id="review_txt" maxlength="160" placeholder="160자 이내로 작성하세요."></textarea>
+                            <button type="button" onclick="review_enroll();">등록</button>
+                        </div>
+
+                    </form>
+
+
+                </div>
+                <div id="review_list"></div>
+            </div>
+
+
+        </div><!--/#product_box 종료-->
     </section>
 
     <footer>

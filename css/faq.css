@@ -1,0 +1,248 @@
+@charset "utf-8";
+
+
+/*FAQ 공통*/
+/*
+#faq_box{
+    width: 1000px; 
+    margin: 0 auto; 
+    padding: 20px 0;
+}
+
+#faq_box h2{
+    border-bottom: 1px solid #ccc; 
+    font-size: 20px; 
+    padding: 20px 0;
+}
+
+#faq_box .buttons{
+    padding: 20px 0; 
+    display: flex; 
+    justify-content: flex-end; 
+    flex-wrap: wrap;
+}
+
+#faq_box .buttons li{
+    margin: 0 5px;
+}
+
+#faq_box .buttons li button{
+    padding: 10px 20px; 
+    font-size: 16px; 
+    border:none; 
+    border-radius:4px; 
+    background-color: #f1f1f1; 
+    cursor: pointer; 
+    color:#777;
+}
+
+#faq_box .buttons li:hover button{
+    background-color: #21bda1; 
+    color:#fff;
+}
+*/
+
+
+/*FAQ 폼 양식(faq_form.php)*/
+/*
+#faq_box #faq_form{
+    border-bottom: 1px solid #ccc;
+}
+
+#faq_box #faq_form li{
+    padding: 10px 0; 
+    display: flex; 
+    flex-wrap: wrap;
+}
+
+#faq_box #faq_form li .label{
+    width: 160px; 
+    padding: 0 10px;
+}
+
+#faq_box #faq_form li .label label{
+    width: 100%; 
+    line-height: 40px; 
+    font-weight: bold;
+}
+
+#faq_box #faq_form li .input{
+    width: calc(100% - 160px); 
+    padding: 0 10px;
+}
+
+#faq_box #faq_form li .input input{
+    width: 100%; 
+    border: none; 
+    border-bottom: 1px solid #ccc; 
+    border-top: 1px solid transparent; 
+    line-height: 38px; 
+    padding: 0 10px;
+}
+
+#faq_box #faq_form li .input textarea{
+    width: 100%; 
+    height: 360px; 
+    resize: none; 
+    padding: 8px 10px; 
+    border: 1px solid #ccc; 
+    border-radius:4px;
+}
+*/
+
+
+/*FAQ 리스트*/
+/*
+#faq_list{
+    border-bottom: 1px solid #ccc;
+}
+
+#faq_list li{
+    padding: 10px 0; 
+    display: flex; 
+    flex-wrap: wrap; 
+    align-items: center;
+}
+
+#faq_list li:first-child{
+    border-bottom: 1px solid #333;
+}
+#faq_list li:first-child span{
+    font-weight: bold; 
+    color:#555;
+}
+
+#faq_list li:nth-child(even){
+    background-color: #edefed;
+}
+
+#faq_list li span{
+    font-size: 14px; 
+    text-align: center; 
+    display: block; 
+    color:#777; 
+    padding: 0 5px;
+}
+
+#faq_list li span.field1{
+    width: 60px;
+}
+
+#faq_list li span.field2{
+    width: calc(100% - 420px); 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-align: left;
+}
+
+#faq_list li span.field3{
+    width: 180px;
+}
+
+#faq_list li span.field4{
+    width: 180px;
+}
+
+#faq_list li span a{
+    color:#777;
+}
+
+#faq_list li span a:hover{
+    color:#21bda1;
+}
+
+
+#page_num{
+    padding: 20px 0; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+
+#page_num li{
+    margin: 0 10px; 
+    font-size: 13px;
+}
+
+#page_num li a{
+    color:#777;
+}
+
+#page_num li .cur_page{
+    color:#21bda1; 
+    font-weight: bold; 
+    font-size: 15px;
+}
+
+#page_num li a:hover{
+    color:#21bda1;
+}
+*/
+
+/*FAQ 상세보기*/
+/*
+#faq_detail{
+    padding: 0 10px;
+}
+
+#faq_detail li{
+    font-size: 14px; 
+    padding: 10px 0; 
+    color:#777; 
+    border-bottom: 1px solid #ccc;
+}
+
+#faq_detail li:first-child{
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+}
+*/
+
+
+
+
+/*FAQ 공통*/
+#faq_box{width: 1000px; margin: 0 auto; padding: 40px 0;}
+
+#faq_box h2{border-bottom: 1px solid #ccc; font-size: 20px; color:#555; padding: 20px 0;}
+
+#faq_box .buttons{padding: 20px 0; display: flex; justify-content: flex-end; flex-wrap: wrap;}
+
+#faq_box .buttons li{margin: 0 5px;}
+
+#faq_box .buttons li button{padding: 10px 20px; font-size: 16px; border:1px solid #21bda1; color:#21bda1; border-radius:4px; cursor: pointer; background-color: #fff;}
+
+#faq_box .buttons li:hover button{background-color: #21bda1; color:#fff;}
+
+
+/*FAQ 작성하기 폼*/
+#faq_box #faq_form{border-bottom: 1px solid #ccc;}
+#faq_box #faq_form li{padding: 10px 0; display: flex; flex-wrap: wrap;}
+#faq_box #faq_form li .label_box{width: 160px; padding: 0 10px;}
+#faq_box #faq_form li .label_box label{width: 100%; line-height: 40px; font-size: 16px; font-weight: 500; color:#777;}
+
+#faq_box #faq_form li .input_box{width: calc(100% - 160px); padding: 0 10px; color:#777;}
+
+#faq_box #faq_form li .input_box p{line-height: 40px;}
+
+#faq_box #faq_form li .input_box input{width: 100%; border:none; border-bottom: 1px solid #aaa; line-height: 39px; padding: 0 10px; color:#777;}
+#faq_box #faq_form li .input_box textarea{width: 100%; height: 200px; resize: none; padding: 8px 10px; border: 1px solid #aaa; border-radius:4px; color:#777;}
+
+
+/*FAQ 리스트*/
+#faq_box .faq_list{border-bottom: 1px solid #ccc; padding: 20px 0;}
+
+#faq_box .faq_list .list_detail{margin-bottom: 20px;}
+
+#faq_box .faq_list .list_detail .question{height: 40px; padding: 0 20px 0 40px; display: flex; justify-content: space-between; align-items: center; background-color: #cec; position: relative;}
+#faq_box .faq_list .list_detail .question:before{content:""; position: absolute; width: 40px; height: 40px; background-image: url(../img/q_mark.svg); top:0; left: 0; background-size: auto 60%; background-position: 50% 50%; display: block; background-repeat: no-repeat;}
+
+#faq_box .faq_list .list_detail .question h3{font-size: 17px; color:#555;}
+#faq_box .faq_list .list_detail .question span{color:#555; cursor: pointer;}
+
+#faq_box .faq_list .list_detail .answer{padding: 10px 20px 10px 40px; color:#777; font-size: 14px; background-color: #efe; display: none;}
+
+
+

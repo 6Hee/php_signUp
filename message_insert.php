@@ -32,8 +32,8 @@
 
 
     if($num_record){  //받는 사람의 아이디가 존재할 경우
-        $sql_m = "insert into message (send_id, rv_id, subject, content, regist_day)";
-        $sql_m .= "values('$send_id', '$rv_id', '$subject', '$content', '$regist_day')";
+        $sql_m = "insert into message (send_id, rv_id, subject, content, regist_day, readed)";
+        $sql_m .= "values('$send_id', '$rv_id', '$subject', '$content', '$regist_day', '0')";
         //var_dump($sql_m);
 
         //'$content' => '심청전 '아버지가 앞을 못봐서~''

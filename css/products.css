@@ -430,3 +430,249 @@ ul, li{margin: 0; padding: 0; list-style: none;}
 #product_review #review_write .review_starSpace .review_starChk li.active{
     color:#f90;
 }
+
+#product_review #review_write .review_starSpace .star_result{
+    padding-left: 20px;
+    color: #21bda1;
+}
+
+
+
+
+
+
+
+
+
+#product_review #review_write .review_textWrite{
+    border: 1px solid #ccc;
+    padding: 10px 20px;
+    margin-top: 20px;
+}
+
+#product_review #review_write .review_textWrite h4{
+    padding-bottom: 10px;
+    font-size: 14px;
+    color: #777;
+}
+
+#product_review #review_write .review_textWrite textarea{
+    width: 100%;
+    height: 120px;
+    border: none;
+    background-color: #eee;
+    resize: none;
+    padding: 10px;
+}
+
+#product_review #review_write .review_textWrite button{
+    margin-top: 10px;
+    border: 1px solid #21bda1;
+    border-radius: 4px;
+    padding: 4px 12px;
+    color: #21bda1;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+#product_review #review_write .review_textWrite button:hover{
+    background-color: #21bda1;
+    color: #fff;
+}
+
+
+#product_review #review_list{
+    border-top: 1px solid #aaa; 
+    padding: 20px 0;
+}
+
+#product_review #review_list h3{
+    font-size: 17px;
+    font-weight: 300;
+    color: #777;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+}
+
+#product_review #review_list .review_detail{
+    padding: 20px 0 10px;
+}
+
+#product_review #review_list .review_detail > ul{
+    border-bottom: 1px solid #ccc; 
+    padding-bottom: 20px; 
+    margin-bottom: 20px;
+}
+
+#product_review #review_list .review_detail > ul > li{
+    padding-bottom: 10px; 
+    color:#777; 
+    font-size: 14px;
+}
+
+#product_review #review_list .review_detail > ul > li .review_writer{
+    font-weight: 500;
+}
+
+#product_review #review_list .review_detail > ul > li > ul{
+    display: flex; 
+    flex-wrap: wrap; 
+    font-size: 14px;
+}
+
+#product_review #review_list .review_detail > ul > li > ul > li.active{
+    color:#f90;
+}
+
+
+
+/*카트 담기 안내 팝업*/
+.dark{
+    position: fixed; 
+    width: 100%; 
+    height: 100%; 
+    top:0; left:0; 
+    background-color: rgba(0,0,0,0.5);
+    z-index: -1; 
+    opacity: 0;
+}
+
+.dark.active{
+    z-index: 100; 
+    opacity: 1; 
+    transition: opacity 0.5s;
+}
+
+.popup{
+    position: fixed; 
+    width: 280px; 
+    top:50%; left:50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius:6px; 
+    z-index: -1; 
+    opacity: 0;
+}
+
+.popup.active{
+    z-index: 100; 
+    opacity: 1; 
+    transition: opacity 0.5s;
+}
+
+.popup > div{
+    display: none;
+}
+.popup > div.active{
+    display: block;
+}
+
+.popup .pop_cont{
+    width: 100%; 
+    height: 120px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color:#777; 
+    font-weight: 300;
+}
+
+.popup .pop_btn{
+    width: 100%; 
+    border-top: 1px solid #ccc; 
+    padding-top: 20px; 
+    display: flex; 
+    justify-content: center;
+}
+
+.popup .pop_btn button{
+    margin: 0 5px; 
+    padding: 6px 12px; 
+    border:1px solid #21bda1; 
+    background-color: #fff; 
+    color:#21bda1; 
+    border-radius:4px;
+}
+
+.popup .pop_btn button:hover{
+    background-color:#21bda1; color:#fff;
+}
+
+
+
+
+
+/*카트 담기 안내 팝업*/
+.dark{
+    position: fixed; 
+    width: 100%; 
+    height: 100%; 
+    top:0;left:0; 
+    background-color: rgba(0,0,0,0.5); 
+    z-index: -1; 
+    opacity: 0;
+}
+
+.dark.active{
+    z-index: 100; 
+    opacity: 1; 
+    transition: opacity 0.5s;
+}
+
+.popup{
+    position: fixed; 
+    width: 280px; 
+    top:50%; left:50%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff; 
+    padding: 20px; 
+    border-radius:6px; 
+    z-index: -1; 
+    opacity: 0;
+}
+
+.popup.active{
+    z-index: 100; 
+    opacity: 1; 
+    transition: opacity 0.5s;
+}
+
+.popup > div{
+    display: none;
+}
+.popup > div.active{
+    display: block;
+}
+
+.popup .pop_cont{
+    width: 100%; 
+    height: 120px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    color:#777; 
+    font-weight: 300;
+}
+
+.popup .pop_btn{
+    width: 100%; 
+    border-top: 1px solid #ccc; 
+    padding-top: 20px; 
+    display: flex; 
+    justify-content: center;
+}
+
+.popup .pop_btn button{
+    margin: 0 5px; 
+    padding: 6px 12px; 
+    border:1px solid #21bda1; 
+    background-color: #fff; 
+    color:#21bda1; 
+    border-radius:4px;
+}
+
+.popup .pop_btn button:hover{
+    background-color:#21bda1; 
+    color:#fff;
+}

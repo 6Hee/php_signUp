@@ -114,6 +114,59 @@
                 </ul>
                 <button type="submit" class="sel_del">선택 항목 삭제</button>
             </form>
+
+
+            <h2>관리자 페이지 (프로그램 관리)</h2>
+            <form name="productList" action="./admin_product_delete.php" method="post">
+                <ul id="product_list">
+                    <li>
+                        <span class="field1">선택</span>
+                        <span class="field2">이미지</span>
+                        <span class="field3">프로그램</span>
+                        <span class="field4">프로그램 내용</span>
+                        <span class="field5">좋아요 수</span>
+                        <span class="field6">조회수</span>
+                        <span class="field7">기본요금(원)</span>
+                        <span class="field8">등록일</span>
+                    </li>
+
+<?php
+    $sql = "select * from products order by num desc";
+    $result = mysqli_query($con, $sql);
+    $total_record = mysqli_num_rows($result);
+
+    $number = $total_record;
+
+    while($row = mysqli_fetch_array($result)){
+        //num name title sub content price fav hit regist_day file_name file_type file_copied
+        $num = $row["num"];
+        $pd_img = "./products/".$row["file_copied"];
+        $title = $row["title"];
+        $content = $row["content"];
+        $fav = $row["fav"];
+        $hit = $row["hit"];
+        $price = $row["price"];
+        $regist_day = substr($row["regist_day"], 0, 8);
+?>
+                    <li>
+                        <span class="field1"><input type="checkbox" name="unit[]" value="<?=$num?>"></span>
+                        <span class="field2"><img src="<?=$pd_img?>" alt=""></span>
+                        <span class="field3"><?=$title?></span>
+                        <span class="field4"><?=$content?></span>
+                        <span class="field5"><?=$fav?></span>
+                        <span class="field6"><?=$hit?></span>
+                        <span class="field7"><?=$price?></span>
+                        <span class="field8"><?=$regist_day?></span>
+                    </li>
+<?php
+        $number--;
+    }
+?>
+                </ul>
+                <button type="submit" class="sel_del">선택 항목 삭제</button>
+            </form>
+
+
         </div>
     </section>
 

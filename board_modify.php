@@ -67,7 +67,7 @@
         //var_dump($file_replace);  //"jquery.min|js"
 
         $file = explode("|", $file_replace);
-        var_dump($file);  //["jquery.min", "js"]
+        //var_dump($file);  //["jquery.min", "js"]
 
 
         //$file = explode(".", $upfile_name);  //지정한 문자를 기준으로 문자열을 분리하여 배열화시킨다. 

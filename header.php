@@ -107,6 +107,29 @@
 ?>
                 <li><a href="./board_list.php">게시판</a></li>
                 <li><a href="./faq_list.php">FAQ</a></li>
+<?php
+    if($userid){
+?>
+                <li>
+                    <a href="./cart_list.php">CART
+<?php
+        //로그인 사용자의 카트에 하나라도 존재한다면
+        $sql = "select * from cart where id='$userid'";
+        $result = mysqli_query($con, $sql);
+        $total_record = mysqli_num_rows($result);
+        if($total_record){
+?>
+                        <span class="cur_cart"> - 
+                            <span class="cart_num"><?=$total_record?></span>
+                        </span>
+<?php
+        }
+?>
+                    </a>
+                </li>
+<?php
+    }
+?>
             </ul>
         </div>
     </div>

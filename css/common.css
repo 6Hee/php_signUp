@@ -10,6 +10,9 @@ ul, ol{margin: 0; padding: 0; list-style: none;}
 a, a:hover{text-decoration: none;}
 
 
+body.overflow{overflow-y: hidden;}
+
+
 /**  header part  **/
 header #top{
     width: 100%;

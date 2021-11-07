@@ -14,7 +14,7 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 {view 구조}
  - header.php
- - footer.php   
+ - footer.php	
  - member_form.php => js/member_form.js =>member_insert.php(DB에 각 입력상자의 value값을 넣는 작업을 진행)
  - member_check_id.php(아이디 중복 체크)
 
@@ -71,39 +71,50 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
  - (메시지 답장보내기) message_response_form.php
  - (메시지 삭제하기) message_delete.php
 
+ - (메시지 진입간 로그인 상태 확인) message_log_chk.php
+
+
+
 
 [board] 게시판 구성하기
 {DB - sql}
- - db/board.sql(id : 작성자 아이디 / name : 작성자 이름 / subject : 게시글 제목 / content : 게시글 내용 / regist_day : 작성일 / hit : 조회수 / file_name : 업로드된 자료의 실제 이름 / file_type : 업로드된 자료의 파일 형식 / file_copied : 서버에 저장된 파일 이름 / notice : 공지 게시글 또는 일반게시글 구분(1 또는 0))
+ - db/board.sql
+ (id : 작성자 아이디 / name : 작성자 이름 / subject : 게시글 제목 / content : 게시글 내용 / regist_day : 작성일 / hit : 조회수 / file_name : 업로드된 자료의 실제 이름 / 	file_type : 업로드된 자료의 파일 형식 / file_copied : 서버에 저장된 파일 이름 / notice : 공지게시글 또는 일반게시글 구분(1 또는 0))
 
 {css}
  - css/board.css
+
 {js}
  - js/board.js
-{view}
- - (메시지 작성 양식) message_form.php => js/message.js =submit()=> message_insert.php => message_box.php
- - (메시지 리스트) message_box.php
- - (메시지 상세보기 - 각 메시지 제목 클릭시 해당하는 내용을 보여준다.) message_view.php
- - (메시지 답장보내기) message_response_form.php
- - (메시지 삭제하기) message_delete.php
 
- - (메시지 진입간 로그인 상태 확인) message_log_chk.php
+{view}
+ - (게시판 작성 양식) board_form.php => js/board.js =submit()=> board_insert.php : 로그인 회원만 입장 가능
+ - (게시판 리스트) board_list.php : 비로그인 회원 입장 가능
+ - (게시판 상세보기) board_view.php : 비로그인 회원 입장 가능
+ - (게시판 상세보기 - 다운로드 기능만적용) board_download.php
+
+ - (게시판 상세보기 - 수정하기) board_modify_form.php ==> js/board.js =submit()=> board_modify.php(기존 데이터를 갱신)
+ - (게시판 상세보기 - 삭제하기) board_delete.php
+
+
+ - (게시판 작성 진입간 로그인 상태 확인) board_log_chk.php
+
 
 
 [product] 제품 리스트
 {DB - sql}
- - db/products.sql ( 
-     id : 상품 등록자 아이디 
-     name : 상품 등록자 이름 
-     title : 상품 제목 
-     sub : 상품 부제
+ - db/product.sql (
+     id : 상품 등록자 아이디 / 
+     name : 상품 등록자 이름 / 
+     title : 상품 제목 / 
+     sub : 상품 부제 /
      content : 상품 소개 내용
-     price : 상품 가격
-     fav : 좋아요 횟수
-     hit : 상품 조회수
-     regist_day : 상품 최초 등록일
-     file_name : 상품 이미지명
-     file_type : 상품 이미지 형식(jpg, jpeg, png, gif 제한 가능)
+     price : 상품 가격 /
+     fav : 좋아요 횟수 /
+     hit : 상품 조회수 /
+     regist_day : 상품 최초 등록일 /
+     file_name : 상품 이미지 이름 /
+     file_type : 상품 이미지 형식(jpg, jpeg, png, gif 제한 가능) / 
      file_copied : 실제 DB에 저장될 이름 및 형식
      )
 {css}
@@ -117,17 +128,28 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 {view 구성}
  - (상품등록) products_form.php ==> js/products.js =submit()=> products_insert.php
  - (상품리스트) products_list.php
- - (상품상세페이지) products_view.php = 좋아요 클릭시 ajax로 연동=> products_fav.php(페이지가 재로딩되는 부분을 막음)
- - (메인화면 또는 상품 리스트(products_list.php)에서 검색시 결과 리스트) => products_search.js == > products_search_list.php
+ - (상품상세페이지) products_view.php =좋아요 클릭시 ajax로 연동(js/products_view.js)=> products_fav.php (페이지가 재로딩되는 부분을 막음)
+ - (메인화면 또는 상품 리스트(products_list.php)에서 검색시 결과 리스트) => products_search.js ==> products_search_list.php 
+
+[product - 리뷰 파트]
+{DB - sql}
+ - db/review.sql(
+    num	: 리뷰의 고유 넘버 (자동생성)
+    id : 리뷰를 작성한 고객 또는 구매자 아이디
+    name : 리뷰를 작성한 고객 또는 구매자 이름
+    pd_num : 리뷰를 한 대상 상품의 번호(from products) - (URL) ...?num=8
+    score : 리뷰 별점 점수(100점 환산점수로 구성하지 말 것. 리뷰를 한 사람이 선택한 rel값을 그대로 저장 - 만약, 타공별 내부에 색상을 채운다면 100점 환산 점수가 필요)
+    content : 리뷰 내용
+    regist_day : 리뷰 작성일(연-월-일)
+  )
 
 
-
-
-
+    
 
 [관리자 페이지]
 {DB - sql}
  - 없음
+
 {css}
  - css/admin.css
 
@@ -153,7 +175,36 @@ oclass 폴더 생성(생성위치 C:\Bitnami\wampstack-8.0.11-0\apache2\htdocs)
 
 {view 구성}
  - (faq 작성 양식) faq_form.php ==> js/faq.js ==submit()==> faq_insert.php
- 
+ - (faq 리스트) faq_list.php
+ - (faq 상세 페이지) faq_view.php
+
+
+
+[메인 페이지 팝업창]
+{css}
+ - css/pop.css
+
+
+{js}
+ - js/pop.js
+
+{view 구성}
+ - index.php
+
+[카트 구성]
+{DB 구성}
+ - db/cart.sql
+
+{CSS}
+ - css/cart.css
+
+{js}
+ - js/products_view.js
+ - js/cart.js
+
+{view 구성}
+ - cart_list.php
+ - cart_insert.php
 
 
 [[관리자 페이지]] 전체 회원 통제, 게시판 통제, 제품 리스트 통제

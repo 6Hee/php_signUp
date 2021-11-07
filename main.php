@@ -8,7 +8,7 @@
     $result = mysqli_query($con, $sql);
 
     while($row = mysqli_fetch_array($result)){
-        var_dump($row);
+        //var_dump($row);
         $file_copied = "./products/".$row["file_copied"];
         $title = $row["title"];
         $sub = $row["sub"];
@@ -212,6 +212,57 @@
     </div>
 </div>
 
+
+<div id="review">
+    <div class="wrap">
+        <div class="slider review_slider">
+<?php
+    $sql = "select * from review where score>3 order by num desc limit 4";
+    $result = mysqli_query($con, $sql);
+
+
+    
+    while($row = mysqli_fetch_array($result)){
+        $id = $row["id"];
+        $pd_num = $row["pd_num"];
+        $score = $row["score"];
+        $content = $row["content"];
+
+        if($pd_num){
+            
+            $sql1 = "select title from products where num='$pd_num'";
+            $result1 = mysqli_query($con, $sql1);
+            $row1 = mysqli_fetch_array($result1);
+    
+            $title = $row1["title"];
+
+?>
+            <div class="slide">
+                <div class="review_txt">
+                    <span><img src="./img/start_quote_icon.svg" alt=""></span>
+                    <p><?=$content?></p>
+                    <span><img src="./img/end_quote_icon.svg" alt=""></span>
+                </div>
+                <ul rel="<?=$score?>">
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                    <li><i class="fas fa-star"></i></li>
+                </ul>
+                <h4><?=$id?></h4>
+                <div class="review_link">
+                    <a href="./products_view.php?num=<?=$pd_num?>">[<?=$title?>] 바로가기</a>
+                </div>
+            </div>
+<?php
+        }
+    }
+?>
+        
+        </div>
+    </div>
+</div>
 
 
 

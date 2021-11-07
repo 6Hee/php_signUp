@@ -50,15 +50,16 @@
     $result = mysqli_query($con, $sql);
     $row_num = mysqli_num_rows($result);
     //var_dump($row_num);
-
-    if($row_num){  //좋아요 선택
+    if($userid != $id){
+        if($row_num){  //좋아요 선택
 ?>
                         <span class="fav_icon"><img src="./img/fav_fill.svg" alt="좋아요 아이콘"></span>
 <?php
-    }else{
+        }else{
 ?>
                         <span class="fav_icon"><img src="./img/fav_empty.svg" alt="좋아요 아이콘"></span>
 <?php
+        }
     }
 ?>
                     </h3>
@@ -74,28 +75,33 @@
                         <div><h4>예약시간</h4></div>
                         <div><input type="text" value="1"></div>
                     </div>
-
+<?php
+    if($userid != $id){  //로그인 사용자의 아이디와 프로그램을 등록한 아이디가 일치하지 않다면(프로그램 등록자의 상세 페이지에 본인이 접근하였을 때)
+?>
                     <ul class="pd_btn buttons">
 
-<?php
-    if($userid){
-?>
 
-                   
+<?php
+        if($userid){
+?>      
                         <li><button type="button" onclick="location.href='./message_form.php?num=<?=$num?>&id=<?=$id?>'">예약 문의</button></li><!--메세지 발송-->
 <?php
-    }
+        }
 ?>
-                        <li><button type="button">카트 담기</button></li>
+                        <li><button type="button" id="cart_insert" rel="<?=$num?>" data-userid="<?=$userid?>">카트 담기</button></li>
 <?php
-    if($userid){
+        if($userid){
 ?>
                         <li class="review_open"><button type="button">리뷰 등록</button></li>
 <?php
+        }
+?>
+
+                    </ul>
+                
+<?php
     }
 ?>
-                    </ul>
-
                     
                 </div>
             </div>
@@ -113,8 +119,8 @@
                                 <li rel="4"><i class="fas fa-star"></i></li>
                                 <li rel="5"><i class="fas fa-star"></i></li>
                             </ul>
-                            <p><span class="star_rel">0</span> / 5</p>
-                            <input type="text" name="star_score" value="">
+                            <p class="star_result">( <span class="star_rel">0</span> / 5 )</p>
+                            <input type="hidden" name="star_score" value="">
                         </div>
                         <div class="review_textWrite">
                             <h4><?=$userid?></h4>
@@ -123,19 +129,84 @@
                         </div>
 
                     </form>
+<?php
+    //리뷰가 없다면 보여주지 않는다.
+    $sql = "select * from review where pd_num='$num' order by num desc";
+    $result = mysqli_query($con, $sql);
+    $total_record = mysqli_num_rows($result);
 
-
+    if($total_record){
+?>
                 </div>
-                <div id="review_list"></div>
+                <div id="review_list">
+                    <h3>수업 후기 (<?=$total_record?>)</h3>
+                    <div class="review_detail">
+<?php
+        while($row = mysqli_fetch_array($result)){
+            $num = $row["num"];
+            $id = $row["id"];
+            $name = $row["name"];
+            $score = $row["score"];
+            $content = $row["content"];
+            $regist_day = $row["regist_day"];
+?>
+                        <ul>
+                            <li>
+                                <ul class="star_final" rel="<?=$score?>">
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                    <li><i class="fas fa-star"></i></li>
+                                </ul>
+                            </li>
+                            <li>작성자 : <span class="review_writer"><?=$id?></span></li>
+                            <li>작성일 : <span class="review_day"><?=$regist_day?></span></li>
+                            <li>리뷰 내용 : <span><?=$content?></span></li>
+                        </ul>
+<?php
+        }
+?>
+                    </div>
+                </div>
+<?php
+    }
+?>
+
             </div>
-
-
         </div><!--/#product_box 종료-->
     </section>
 
     <footer>
         <?php include "./footer.php"?>
     </footer>
+
+
+    <div class="dark"></div>
+    <div class="popup">
+        <div class="pop_cart1">
+
+            <div class="pop_cont">
+                <p>카트에 해당상품이 존재합니다.</p>
+            </div>
+            <div class="pop_btn">
+                <button>확인</button>
+            </div>
+
+        </div>
+        <div class="pop_cart2">
+
+            <div class="pop_cont">
+                <p>카트에 해당상품을 담았습니다.</p>
+            </div>
+            <div class="pop_btn">
+                <button onclick="location.href='./cart_list.php'">CART 보기</button>
+                <button>계속 쇼핑</button>
+            </div>
+            
+        </div>
+    </div>
+
 
 
     <script src="./js/products_view.js"></script>

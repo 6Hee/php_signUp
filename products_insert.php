@@ -40,7 +40,7 @@
     $upfile_error = $_FILES["upfile"]["error"]; //파일의 정상 또는 비정상
 
 
-    var_dump($upfile_size);
+    //var_dump($upfile_size);
 
 
     if($upfile_name && !$upfile_error){
@@ -51,8 +51,8 @@
 
         $file_name = $file[0];  //파일의 형식을 제외한 이름만 저장
         $file_ext = $file[1];  //파일의 형식만을 저장 
-        var_dump($file_name);
-        var_dump($file_ext);
+        //var_dump($file_name);
+        //var_dump($file_ext);
 
         //파일 확장자의 조건식을 구성
         if($file_ext == "png" || $file_ext == "jpg" || $file_ext == "jpeg" || $file_ext == "gif"){

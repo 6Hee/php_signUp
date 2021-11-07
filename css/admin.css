@@ -129,14 +129,71 @@
 #board_list li span.field5{width: 250px; text-align: left;}
 #board_list li span.field6{width: 200px;}
 
+
+
+
+/*프로그램 관리*/
+#product_list{
+    padding: 20px 0; 
+    border-bottom: 1px solid #ccc; 
+    margin-bottom: 40px;
+}
+
+#product_list li{
+    display: flex; 
+    align-items: center; 
+    flex-wrap: wrap; 
+    padding: 10px 0;
+}
+
+#product_list li:first-child{
+    font-weight: 500; 
+    border-bottom: 1px solid #999;
+}
+
+#product_list li:last-child{
+    border-bottom: 1px solid #555;
+}
+
+#product_list li:nth-child(even){
+    background-color: #f0f0f0;
+}
+
+#product_list li span{
+    font-size: 14px; 
+    display: block; 
+    text-align: center; 
+    line-height: 24px; 
+    text-overflow: ellipsis; 
+    white-space: nowrap; 
+    overflow: hidden; 
+    padding: 0 5px;
+}
+
+#product_list li span.field1{width: 50px;}
+#product_list li span.field2{width: 200px;}
+#product_list li span.field2 img{width: 100%; height: 150px;}
+
+#product_list li span.field3{width: 150px;}
+#product_list li span.field4{width: calc(100% - 800px); text-align: left;}
+#product_list li span.field5{width: 100px; text-align: center;}
+#product_list li span.field6{width: 100px;}
+#product_list li span.field7{width: 100px;}
+#product_list li span.field8{width: 100px;}
+
+
+
+
+/* 삭제 버튼 */
 button.sel_del{
     padding: 10px 20px; 
     border:none;
     font-size: 15px; 
     border-radius:4px; 
-    background-color: #555; 
+    background-color: #21bda1; 
     color:#fff; 
     cursor: pointer;
+    margin-bottom: 50px;
 }
 button.sel_del:hover{
     background-color: #f00;

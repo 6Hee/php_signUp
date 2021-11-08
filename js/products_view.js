@@ -41,7 +41,16 @@ $(document).ready(function(){
     //리뷰 파트 
     //"리뷰 등록" 버튼 클릭시 작성란 나오도록 구성
     $(".review_open").click(function(){
-        $("#review_write").slideDown();
+        $("html, body").animate({
+
+            scrollTop : $("#product_review").offset().top
+
+        }, 500, function(){
+            $("#review_write").slideDown();
+            $("#review_txt").focus();
+
+        });
+        
         //$("#review_txt").focus(); 사용자가 별점을 먼저 체크하고 내려오게끔 진행
 
     });

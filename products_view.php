@@ -26,6 +26,9 @@
     $title = $row["title"];
     $sub = $row["sub"];
     $content = $row["content"];
+
+    $detail = $row["detail"];  //스마트 에디터로 작성된 데이터
+
     $price = number_format($row["price"]);
     $fav = number_format($row["fav"]);
     $hit = $row["hit"];
@@ -104,7 +107,10 @@
 ?>
                     
                 </div>
-            </div>
+            </div><!--/#product_detail-->
+
+            <!--스마트 에디터로 작성된 콘텐츠 넣기-->
+            <div class="detail"><?=$detail?></div>
 
             <!--리뷰 시작-->
             <div id="product_review">

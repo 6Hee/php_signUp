@@ -200,6 +200,26 @@ ul, li{margin: 0; padding: 0; list-style: none;}
 
 
 
+
+
+/* 프로그램 상세 페이지 - 스마트 에디터로 작성된 공간 */
+#product_box .detail{
+    padding: 40px 10px;
+    text-align: center;
+}
+
+#product_box .detail img{
+    max-width: 75%;
+}
+
+#product_box .detail table{
+    max-width: 75%;
+    margin: 0 auto;
+}
+
+
+
+
 /* 프로그램 상세 페이지 */
 #product_detail{
     width: 100%;

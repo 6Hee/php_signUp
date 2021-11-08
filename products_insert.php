@@ -24,6 +24,7 @@
     $title = str_replace("'", "&#39;", $_POST["title"]);
     $sub = str_replace("'", "&#39;", $_POST["sub"]);
     $content = str_replace("'", "&#39;", $_POST["content"]);
+    $detail = str_replace("'", "&#39;", $_POST["detail"]);
     $price = $_POST["price"];
     $regist_day = date("YmdHis");
     //var_dump($regist_day);
@@ -90,8 +91,10 @@
 
     //DB 전송
     include "./db_con.php";
-    $sql = "insert into products (id, name, title, sub, content, price, fav, hit, regist_day, file_name, file_type, file_copied)";
-    $sql .= "values('$userid', '$username', '$title', '$sub', '$content', '$price', 0, 0, '$regist_day', '$upfile_name', '$upfile_type', '$copied_file_name')";
+    $sql = "insert into products (id, name, title, sub, content, detail, price, fav, hit, regist_day, file_name, file_type, file_copied)";
+    $sql .= "values('$userid', '$username', '$title', '$sub', '$content', '$detail', '$price', 0, 0, '$regist_day', '$upfile_name', '$upfile_type', '$copied_file_name')";
+
+
 
     mysqli_query($con, $sql);
     mysqli_close($con);
@@ -114,3 +117,5 @@
     }
     */
 ?>
+
+
